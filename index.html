@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+	<style type="text/css">
+		body{
+			font-size: 15px;
+			font-family: sans-serif;
+			background-color: #f4f4f4;
+			
+		}
+		header{
+			background: black;
+			padding: 20px;
+			text-align: center;
+			border-bottom: 4px #000 solid;
+			margin-bottom: 10px;
+			color: white;
+		}
+		.container{
+			width:90%;
+			margin: auto;
+			padding: 10px;
+		}
+
+		#box{
+			color: white;
+			background-color: black;
+			width:500px;
+			height:200px;
+			padding: 10px;
+			text-align: center;
+
+		}
+
+		#box2{
+			height: 100px;
+			width: 100px;
+			background-color: black;
+			position: relative;
+		}
+	</style>
+
+	<header>
+		<h1>jQuery learning basics</h1>
+	</header>
+
+    <div class="container">
+    	<h1 id="heading1">
+    		Heading one
+    	</h1>
+    	<p id="param1">
+    		ajelkfafjajfjafjaiugagnvang
+    		abagjioajgaogjoiaga
+    		gbagjiajga
+    		gaigoagoaijgaoignag
+    		ajgiaegoaegagjiaengoiangoangiona
+
+    	</p>
+
+    	<h1 class = "heading2">
+    		Heading one
+    	</h1>
+    	<p class = "param2">
+    		ajelkfafjajfjafjaiugagnvang
+    		abagjioajgaogjoiaga
+    		gbagjiajga
+    		gaigoagoaijgaoignag
+    		ajgiaegoaegagjiaengoiangoangiona
+    		
+    	</p>
+
+
+	    <ul id="list">
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    	<li>list1</li>
+	    </ul>
+
+
+    	<input type="button" name="" value="button 1">
+    	<input type="submit" name="" value="submit">
+    	<input type="text" name="">
+
+    	<a href="https://www.google.com">gogole</a>
+    	<a href="https://www.twitter.com">twitter</a>
+
+    </div>
+
+    <!--Button Event Clicks Example-->
+    <div class="container">
+    	<button id = "button1">	
+    	button1
+    </button>
+
+    <button id = "button2">
+		button2    	
+    </button>
+
+    <p id="p1">
+    	ajelkfafjajfjafjaiugagnvang
+    		abagjioajgaogjoiaga
+    		gbagjiajga
+    		gaigoagoaijgaoignag
+    		ajgiaegoaegagjiaengoiangoangiona
+    </p>
+
+    <h1 id="coords"></h1>
+
+
+    <br>
+    <br>
+
+	    <button id="btnfadeout">Animation</button>
+	    <button id="btnfadein">Animation</button>
+	    <button id="btntog">Animation</button>
+	    <button id="btnslideup">Animation</button>
+	    <button id="btnslidedown">Animation</button>
+	    <button id="btnslidetog">Animation</button>
+	    <button id="btnstop">Animation</button>
+	    <div id="box"><h1>Hello World.!</h1>  
+	    </div>
+
+	    <div>
+	    <hr>
+	    <button id ="btnleft">left</button>
+	    <button id ="btnright">right</button>
+	    <button id ="btnarround">Arround</button>
+	    <hr>
+	    <div id="box2"></div>
+	    </div>
+
+	</div>
+
+    </div>
+    
+
+
+    
+
+
+    <script src="jquery.js"></script>
+    <script>
+
+ 	//$('h1').hide();
+    //$('h1#heading2').hide();
+    //$('h1.heading2').hide();
+    //('h1').css('color','red');
+ 	$('ul#list li:first').css('color','green');
+ 	$('ul#list li:last').css('color','red');
+ 	$('ul#list li:even').css('background-color','orange');
+ 	$('ul#list li:odd').css('background-color','blue');
+ 	$('ul#list li:nth-child(3n)').css('list-style','none');
+ 	$(':text').hide();
+ 	$('[href]').css('color','red');
+ 	$('a[href="https://www.twitter.com"]').css('color','green');
+ 	
+
+ 	
+ 	//---------BUTTON CLICK EVENTS---------
+
+ 	$(document).ready(function(){
+ 		/*
+	 		$('#button1').on('click', function(){
+	 			$('#p1').hide();
+	 	});
+
+	 		$('#button2').on('click', function(){
+	 			$('#p1').show();
+	 	});
+
+	 	toggle event dblclick
+	 		$('#button1').dblclick(function(){
+	 			$('#p1').toggle();
+	 	});
+
+	 	$('#button1').hover(function(){
+	 		$('#p1').toggle();
+	 	});
+
+	 		$('#button1').on('mouseenter', function(){
+	 			$('#p1').toggle();
+	 	});
+	 		$('#button1').on('mouseleave', function(){
+	 			$('#p1').toggle();
+	 	});
+	 		$('#button1').on('mousemove', function(){
+	 			$('#p1').toggle();
+	 	});
+	 		$('#button1').on('mousedown', function(){
+	 			$('#p1').toggle();
+	 	});
+	 		$('#button1').on('mouseup', function(){
+	 			$('#p1').toggle();
+	 	}); 
+
+	 	$('#button1').click(function(e){
+	 		//alert(e.currentTarget.id);
+
+	 	});
+	 	$(document).on('mousemove',function(e){
+	 		$('#coords').html('Coords: Y :' +e.clientY+ " X :" +e.clientX);
+	 	});
+
+
+	 	// var newArry = $('ul#list li').toArray();
+	 	// 	console.log(newArray);
+
+
+	 	var newArry = $('ul#list li').toArray();
+	 		$.each(newArry,function(i,val){
+	 			$('#users').append('<li>' +val+ '</li>')
+	 		});*/
+
+	 		//-------ANIMATION AND EFFECTS-------
+	 		$('#btnfadeout'). click(function(){
+	 			$('#box').fadeOut(3000,function(){
+	 				$('#btn').text('It Gone.!');
+	 			});
+	 		});	
+
+	 		$('#btnfadein'). click(function(){
+	 			$('#box').fadeIn(3000);
+	 		});
+
+
+	 		$('#btntog'). click(function(){
+	 			$('#box').fadeToggle(1000);
+	 		});
+
+
+	 		$('#btnslideup'). click(function(){
+	 			$('#box').slideUp(3000);
+	 		});
+
+
+	 		$('#btnslidedown'). click(function(){
+	 			$('#box').slideDown(3000);
+	 		});
+
+
+	 		$('#btnslidetog'). click(function(){
+	 			$('#box').slideToggle(3000);
+	 		});
+
+	 		$('#btnstop'). click(function(){
+	 			$('#box').stop();
+	 		});
+
+	 		$('#btnright').click(function(){
+	 			$('#box2').animate({
+	 				left: 500,
+	 				height: '10px',
+	 				width: '10px',
+	 				opacity: '0.5'
+	 			});
+	 		});
+
+	 		$('#btnleft').click(function(){
+	 			$('#box2').animate({
+	 				left: 0,
+	 				height: '100px',
+	 				width: '100px',
+	 				opacity: '1'
+
+	 			});
+	 		});
+
+	 		$('#btnarround'). click(function(){
+	 			var box = $('#box2');
+	 			box.animate({
+	 				left: 300
+	 			});
+	 			box.animate({
+	 				top: 300
+	 			});
+	 			box.animate({
+	 				top: 300,
+	 				left: 0
+	 			});
+	 			box.animate({
+	 				left: 0,
+	 				top: 0
+	 			});
+	 		});
+
+	 	});
+ 	
+ 	</script>
+</body>
+</html> 
